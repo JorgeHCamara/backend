@@ -24,6 +24,11 @@ class ProductResource(Resource):
 class AddProductResource(Resource):
     def post(self):
         data = request.get_json()
+        print(data)
         product = product_schema.load(data)
         ProductDatabase.add_product(product)
-        return jsonify(product_schema.dump(product))
+        return jsonify({
+            "success": True,
+            "message": "Product added successfully",
+            "product": product_schema.dump(product)
+        })
