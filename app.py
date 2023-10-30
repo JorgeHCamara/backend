@@ -4,10 +4,12 @@ from models.product import db
 from resources.product_resource import ProductResource
 from routes import initialize_routes
 from config import Config
+from flask_cors import CORS
 
 app = Flask(__name__)
 api = Api(app)
 app.config.from_object(Config)
+CORS(app)
 
 db.init_app(app)
 
