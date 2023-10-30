@@ -1,0 +1,3 @@
+venv/
+instance/products.db
+__pycache__/
